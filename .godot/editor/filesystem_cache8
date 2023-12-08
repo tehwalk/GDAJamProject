@@ -1,3 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1702038835
+::res://::1702039559
 icon.svg::CompressedTexture2D::3313936745186946882::1702038719::1702038731::1::::<><>::
+::res://Components/::1702039671
+Drag.tscn::PackedScene::6412574344613452450::1702040216::0::1::::<><>::uid://bnhkb3pihssq1::::res://icon.svg
+::res://Scenes/::1702039546
+main_scene.tscn::PackedScene::592037220040148957::1702039546::0::1::::<><>::
