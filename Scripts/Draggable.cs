@@ -33,12 +33,12 @@ public partial class Draggable : Area2D
 	}
 
    /*  public override void _Input(InputEvent @event)
-    {
-       if(@event is InputEventMouseButton eventMouse && isDraggable)
+	{
+	   if(@event is InputEventMouseButton eventMouse && isDraggable)
 	   {
-            pos = GetLocalMousePosition()
+			pos = GetLocalMousePosition()
 	   }
-    } */
+	} */
 
 
 }

@@ -40,4 +40,4 @@ func _on_credits_pressed():
 
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://selection_scene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
