@@ -1,3 +1,11 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1702040109
-icon.svg::CompressedTexture2D::3313936745186946882::1702039874::1702040120::1::::<><>::
+::res://::1702072845
+icon.svg::CompressedTexture2D::3313936745186946882::1702038719::1702042894::1::::<><>::
+::res://Components/::1702045038
+Drag.tscn::PackedScene::6412574344613452450::1702045038::0::1::::<><>::uid://bnhkb3pihssq1::::res://icon.svg<>res://Scripts/Draggable.cs
+::res://Scenes/::1702044908
+main_scene.tscn::PackedScene::592037220040148957::1702044908::0::1::::<><>::
+menu.tscn::PackedScene::7725310405966807827::1702042926::0::1::::<><>::res://Scripts/menu.gd
+::res://Scripts/::1702042926
+Draggable.cs::CSharpScript::-1::1702045034::0::1::::<><>::
+menu.gd::GDScript::-1::1702042586::0::1::::<>Control<>::
