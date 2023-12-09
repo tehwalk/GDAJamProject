@@ -1,3 +1,6 @@
-res://Scenes/menu.tscn
-res://menu.gdshader
-res://Scenes/selection_scene.tscn
+res://Scenes/main_scene.tscn
+res://Components/ball.tscn
+res://Components/test.tscn
+res://Components/Drag.tscn
+res://Scripts/Draggable.cs
+res://Scripts/Spawner.cs

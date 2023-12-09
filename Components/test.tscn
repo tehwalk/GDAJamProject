@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkhge4553whra"]
+
+[ext_resource type="Script" path="res://Scripts/Spawner.cs" id="1_kh6yy"]
+[ext_resource type="Texture2D" uid="uid://bnhkb3pihssq1" path="res://icon.svg" id="2_qjspi"]
+[ext_resource type="Script" path="res://Scripts/Draggable.cs" id="2_qq0k0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky28k"]
+size = Vector2(269, 453)
+
+[node name="test" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(3, -217)
+editor_draw_limits = true
+
+[node name="spawner" type="Node2D" parent="."]
+position = Vector2(33, -361)
+script = ExtResource("1_kh6yy")
+resource = "res://Components/ball.tscn"
+radius = 0.05
+quantity = 100
+
+[node name="Timer" type="Timer" parent="spawner"]
+wait_time = 0.14
+autostart = true
+
+[node name="pipe" type="StaticBody2D" parent="."]
+position = Vector2(40, 0)
+input_pickable = true
+script = ExtResource("2_qq0k0")
+
+[node name="Sprite2D" type="Sprite2D" parent="pipe"]
+position = Vector2(2.5, 1.99999)
+scale = Vector2(2.02344, 3.46875)
+texture = ExtResource("2_qjspi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pipe"]
+shape = SubResource("RectangleShape2D_ky28k")
+debug_color = Color(0.878431, 0.313726, 0.360784, 0.419608)
+
+[connection signal="timeout" from="spawner/Timer" to="spawner" method="Spawn"]
+[connection signal="mouse_entered" from="pipe" to="pipe" method="OnMouseEntered"]
+[connection signal="mouse_exited" from="pipe" to="pipe" method="OnMouseExited"]

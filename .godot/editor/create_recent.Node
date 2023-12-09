@@ -1,8 +1,9 @@
-ColorRect
+Sprite2D
+StaticBody2D
+CollisionShape2D
+Area2D
+Timer
 Node2D
-Button
-LinkButton
-Label
-Panel
-VBoxContainer
-MarginContainer
+Camera2D
+RigidBody2D
+GPUParticles2D
