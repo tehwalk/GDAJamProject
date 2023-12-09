@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqbncf557kjnr"]
+[gd_scene load_steps=4 format=3 uid="uid://bqbncf557kjnr"]
 
 [ext_resource type="Script" path="res://Scripts/Draggable.cs" id="1_16jrf"]
+[ext_resource type="PackedScene" uid="uid://cvuplq8ai6u8c" path="res://Components/rotation_button.tscn" id="2_jw4sc"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ght7q"]
 
 [node name="tube_tee" type="Area2D"]
+scale = Vector2(3, 3)
 script = ExtResource("1_16jrf")
+rotationDegrees = 45.0
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 z_index = -2
@@ -33,5 +36,8 @@ polygon = PackedVector2Array(-18, -36, -14, -36, -14, 47, -18, 47)
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
 polygon = PackedVector2Array(-18, -36, -14, -36, -14, 47, -18, 47)
 
+[node name="Solinas deksia" parent="." instance=ExtResource("2_jw4sc")]
+
 [connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
 [connection signal="mouse_exited" from="." to="." method="OnMouseExited"]
+[connection signal="pressed" from="Solinas deksia" to="." method="OnRotationClicked"]

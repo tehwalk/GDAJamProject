@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://buc18rrvm4bfr"]
+[gd_scene load_steps=4 format=3 uid="uid://buc18rrvm4bfr"]
 
 [ext_resource type="Script" path="res://Scripts/Draggable.cs" id="1_w3syl"]
+[ext_resource type="PackedScene" uid="uid://cvuplq8ai6u8c" path="res://Components/rotation_button.tscn" id="2_1yoox"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ght7q"]
 
 [node name="tube_elbow" type="Area2D"]
 script = ExtResource("1_w3syl")
+rotationDegrees = 45.0
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 z_index = -2
@@ -31,5 +33,12 @@ polygon = PackedVector2Array(10, -36, 14, -36, 14, -4, 16, -1, 18, 2, 27, 2, 39,
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
 polygon = PackedVector2Array(10, -36, 14, -36, 14, -4, 18, 2, 27, 2, 40, 2, 50, 2, 70, 2, 70, 6, 37, 6, 29, 6, 21, 6, 15, 5, 10, -3)
 
+[node name="button" parent="." instance=ExtResource("2_1yoox")]
+offset_left = -8.0
+offset_top = 0.0
+offset_right = 24.0
+offset_bottom = 32.0
+
 [connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
 [connection signal="mouse_exited" from="." to="." method="OnMouseExited"]
+[connection signal="pressed" from="button" to="." method="OnRotationClicked"]
