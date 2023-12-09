@@ -1,0 +1,17 @@
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\bin\Debug\Gda Jam.deps.json
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\bin\Debug\Gda Jam.runtimeconfig.json
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\bin\Debug\Gda Jam.dll
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\bin\Debug\Gda Jam.pdb
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\obj\Debug\Gda Jam.csproj.AssemblyReference.cache
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\obj\Debug\Gda Jam.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\obj\Debug\Gda Jam.AssemblyInfoInputs.cache
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\obj\Debug\Gda Jam.AssemblyInfo.cs
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\obj\Debug\Gda Jam.csproj.CoreCompileInputs.cache
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\obj\Debug\Gda Jam.csproj.CopyComplete
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\obj\Debug\Gda Jam.dll
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\obj\Debug\refint\Gda Jam.dll
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\obj\Debug\Gda Jam.pdb
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\obj\Debug\Gda Jam.genruntimeconfig.cache
+C:\Users\Simos\Desktop\GameDev\GDAJamProject\.godot\mono\temp\obj\Debug\ref\Gda Jam.dll

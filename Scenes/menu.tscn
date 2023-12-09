@@ -1,9 +1,30 @@
 [gd_scene load_steps=11 format=3 uid="uid://dicgy7frp35sh"]
 
-[ext_resource type="Script" path="res://GDscripts/menu.gd" id="1_owcb8"]
-[ext_resource type="Shader" path="res://menu.gdshader" id="2_yqscm"]
+[ext_resource type="Script" path="res://GDscripts/menu.gd" id="1_1t4vf"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ea2es"]
+
+[sub_resource type="Shader" id="Shader_l11qh"]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise1 : repeat_enable;
+uniform sampler2D noise2 : repeat_enable;
+uniform vec2 scroll1=vec2(0.05, 0.05);
+uniform vec2 scroll2=vec2(-0.05, -0.05);
+uniform float distorion_strength : hint_range(-1,1)=0.2;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+uniform vec4 tone_color : source_color;
+uniform vec4 top_color : source_color;
+uniform float light_start : hint_range(0.0, 1.0)=0.275;
+uniform float light_end : hint_range(0.0, 1.0)=0.4;
+
+void fragment() {
+	float depth=texture(noise1, UV+scroll1*TIME).r * texture(noise2, UV+scroll2*TIME).r;
+	vec4 screen_col=texture(SCREEN_TEXTURE, SCREEN_UV+distorion_strength*vec2(depth));
+	vec4 top_light=smoothstep(light_start,light_end,depth)*top_color;
+	COLOR=screen_col*tone_color+top_light;
+	COLOR.a=1.0;
+}"
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_10rtl"]
 seed = 5
@@ -28,7 +49,7 @@ seamless_blend_skirt = 0.0
 noise = SubResource("FastNoiseLite_m70g2")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hfnk4"]
-shader = ExtResource("2_yqscm")
+shader = SubResource("Shader_l11qh")
 shader_parameter/scroll1 = Vector2(0.05, 0.05)
 shader_parameter/scroll2 = Vector2(-0.05, -0.05)
 shader_parameter/distorion_strength = 0.0650001
@@ -54,7 +75,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_owcb8")
+script = ExtResource("1_1t4vf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -68,6 +89,16 @@ layout_mode = 0
 offset_left = 192.0
 offset_top = 480.0
 offset_right = 432.0
+offset_bottom = 576.0
+color = Color(0, 0, 0, 1)
+
+[node name="PanelShadow" type="ColorRect" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 0
+offset_left = 128.0
+offset_top = 168.0
+offset_right = 896.0
 offset_bottom = 576.0
 color = Color(0, 0, 0, 1)
 
@@ -152,20 +183,20 @@ text = "Credits"
 visible = false
 top_level = true
 layout_mode = 0
-offset_left = 128.0
-offset_top = 64.0
-offset_right = 1024.0
-offset_bottom = 608.0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 960.0
+offset_bottom = 528.0
 
 [node name="ColorRect" type="ColorRect" parent="Panel"]
 layout_mode = 0
-offset_right = 896.0
-offset_bottom = 544.0
+offset_right = 768.0
+offset_bottom = 400.0
 color = Color(0.176471, 0.176471, 0.176471, 1)
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_right = 896.0
+offset_right = 768.0
 offset_bottom = 112.0
 theme_override_font_sizes/font_size = 60
 text = "Credits"
@@ -174,38 +205,70 @@ vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 128.0
-offset_right = 333.0
-offset_bottom = 173.0
+offset_left = 136.0
+offset_top = 120.0
+offset_right = 377.0
+offset_bottom = 165.0
 theme_override_font_sizes/font_size = 30
 text = "Programming by"
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 184.0
+offset_right = 376.0
+offset_bottom = 229.0
+theme_override_font_sizes/font_size = 30
+text = "and"
+horizontal_alignment = 2
 
 [node name="Label4" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 256.0
-offset_right = 369.0
-offset_bottom = 301.0
+offset_left = 136.0
+offset_top = 248.0
+offset_right = 376.0
+offset_bottom = 293.0
 theme_override_font_sizes/font_size = 30
 text = "Music by"
+horizontal_alignment = 2
 
 [node name="Simonia" type="LinkButton" parent="Panel"]
 layout_mode = 0
-offset_left = 312.0
-offset_top = 192.0
-offset_right = 447.0
-offset_bottom = 234.0
+offset_left = 384.0
+offset_top = 184.0
+offset_right = 519.0
+offset_bottom = 226.0
 theme_override_font_sizes/font_size = 30
 text = "Simonian"
 uri = "https://simonian.itch.io/"
 
+[node name="thewalkingtrash" type="LinkButton" parent="Panel"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 120.0
+offset_right = 619.0
+offset_bottom = 162.0
+theme_override_font_sizes/font_size = 30
+text = "thewalkingtrash"
+uri = "https://thewalkingtrash.itch.io/?fbclid=IwAR1MGpPHqvYZ1Zn2bE-PDkTVQUUvNnM9htwgf3lPbYnTUJLOmQk3oH0_-j4"
+
+[node name="Menelaos Alexiou" type="LinkButton" parent="Panel"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 248.0
+offset_right = 638.0
+offset_bottom = 290.0
+theme_override_font_sizes/font_size = 30
+text = "Menelaos Alexiou"
+uri = "https://soundcloud.com/menelaos-alexiou?fbclid=IwAR04Wz_1iLOWy1zMPGX6hEF6mJbRULxx9X_SpzVKjjtOA8fhlABxuv2IWxA"
+
 [node name="Exit" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 752.0
-offset_top = 448.0
-offset_right = 856.0
-offset_bottom = 512.0
+offset_left = 640.0
+offset_top = 312.0
+offset_right = 744.0
+offset_bottom = 376.0
 theme_override_font_sizes/font_size = 30
 text = "Exit"
 
