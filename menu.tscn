@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dicgy7frp35sh"]
+[gd_scene load_steps=11 format=3 uid="uid://dicgy7frp35sh"]
 
 [ext_resource type="Script" path="res://GDscripts/menu.gd" id="1_owcb8"]
 [ext_resource type="Shader" path="res://menu.gdshader" id="2_yqscm"]
@@ -6,22 +6,25 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ea2es"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_10rtl"]
-seed = 4
-frequency = 0.0347
+seed = 5
+frequency = 0.011
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mdm13"]
-width = 200
-height = 200
+width = 500
+height = 500
 seamless = true
+seamless_blend_skirt = 0.872
 noise = SubResource("FastNoiseLite_10rtl")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_m70g2"]
 seed = 5
-frequency = 0.0594
+frequency = 0.049
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_td3m7"]
-width = 200
-height = 200
+width = 500
+height = 500
+seamless = true
+seamless_blend_skirt = 0.0
 noise = SubResource("FastNoiseLite_m70g2")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hfnk4"]
@@ -36,7 +39,12 @@ shader_parameter/light_end = 0.524
 shader_parameter/noise1 = SubResource("NoiseTexture2D_mdm13")
 shader_parameter/noise2 = SubResource("NoiseTexture2D_td3m7")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0sqn3"]
+seed = 5
+frequency = 0.085
+
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_24ru1"]
+noise = SubResource("FastNoiseLite_0sqn3")
 
 [node name="Menu" type="Control"]
 material = SubResource("CanvasItemMaterial_ea2es")
@@ -49,12 +57,14 @@ grow_vertical = 2
 script = ExtResource("1_owcb8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1158.0
 offset_bottom = 661.0
 color = Color(0.333333, 0.333333, 0.333333, 1)
 
 [node name="Start Shadow" type="ColorRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 0
 offset_left = 192.0
 offset_top = 480.0
 offset_right = 432.0
@@ -63,6 +73,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Credits Shadow" type="ColorRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 0
 offset_left = 608.0
 offset_top = 480.0
 offset_right = 848.0
@@ -71,6 +82,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Title Shadow" type="Label" parent="."]
 self_modulate = Color(0, 0, 0, 0.392157)
+layout_mode = 0
 offset_left = -32.0
 offset_top = 248.0
 offset_right = 1120.0
@@ -90,6 +102,7 @@ scale = Vector2(2.25, 1.26563)
 texture = SubResource("NoiseTexture2D_24ru1")
 
 [node name="Title" type="Label" parent="."]
+layout_mode = 0
 offset_top = 200.0
 offset_right = 1152.0
 offset_bottom = 299.0
@@ -118,6 +131,7 @@ color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 
 [node name="Start" type="Button" parent="."]
 top_level = true
+layout_mode = 0
 offset_left = 224.0
 offset_top = 432.0
 offset_right = 464.0
@@ -126,6 +140,7 @@ theme_override_font_sizes/font_size = 40
 text = "Start"
 
 [node name="Credits" type="Button" parent="."]
+layout_mode = 0
 offset_left = 640.0
 offset_top = 432.0
 offset_right = 880.0
@@ -136,6 +151,7 @@ text = "Credits"
 [node name="Panel" type="Panel" parent="."]
 visible = false
 top_level = true
+layout_mode = 0
 offset_left = 128.0
 offset_top = 64.0
 offset_right = 1024.0
