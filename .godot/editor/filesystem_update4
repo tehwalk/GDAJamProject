@@ -1,7 +1,6 @@
 res://Scenes/main_scene.tscn
+res://Components/ball.tscn
+res://Components/test.tscn
 res://Components/Drag.tscn
 res://Scripts/Draggable.cs
-res://Components/Water.tscn
-res://Components/ball.tscn
 res://Scripts/Spawner.cs
-res://Components/test.tscn

@@ -4,6 +4,7 @@ using System;
 public partial class Draggable : StaticBody2D
 {
 	bool isDraggable = false;
+	Vector2 pos;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -15,8 +16,9 @@ public partial class Draggable : StaticBody2D
 	{
 		if(Input.IsMouseButtonPressed(MouseButton.Left) && isDraggable)
 		{
-			this.Position = GetNode<Camera2D>("Camera2D").GetViewport().GetMousePosition();
-		}
+			this.Position = GetGlobalMousePosition();
+		} 
+		 
 	}
 
 
@@ -30,10 +32,13 @@ public partial class Draggable : StaticBody2D
 		isDraggable = false;
 	}
 
-    public override void _Input(InputEvent @event)
+   /*  public override void _Input(InputEvent @event)
     {
-        base._Input(@event);
-    }
+       if(@event is InputEventMouseButton eventMouse && isDraggable)
+	   {
+            pos = GetLocalMousePosition()
+	   }
+    } */
 
 
 }
