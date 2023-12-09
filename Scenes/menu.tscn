@@ -1,12 +1,277 @@
-[gd_scene load_steps=2 format=3 uid="uid://dicgy7frp35sh"]
+[gd_scene load_steps=11 format=3 uid="uid://dicgy7frp35sh"]
 
-[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_2ojee"]
+[ext_resource type="Script" path="res://GDscripts/menu.gd" id="1_1t4vf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ea2es"]
+
+[sub_resource type="Shader" id="Shader_l11qh"]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise1 : repeat_enable;
+uniform sampler2D noise2 : repeat_enable;
+uniform vec2 scroll1=vec2(0.05, 0.05);
+uniform vec2 scroll2=vec2(-0.05, -0.05);
+uniform float distorion_strength : hint_range(-1,1)=0.2;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+uniform vec4 tone_color : source_color;
+uniform vec4 top_color : source_color;
+uniform float light_start : hint_range(0.0, 1.0)=0.275;
+uniform float light_end : hint_range(0.0, 1.0)=0.4;
+
+void fragment() {
+	float depth=texture(noise1, UV+scroll1*TIME).r * texture(noise2, UV+scroll2*TIME).r;
+	vec4 screen_col=texture(SCREEN_TEXTURE, SCREEN_UV+distorion_strength*vec2(depth));
+	vec4 top_light=smoothstep(light_start,light_end,depth)*top_color;
+	COLOR=screen_col*tone_color+top_light;
+	COLOR.a=1.0;
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_10rtl"]
+seed = 5
+frequency = 0.011
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mdm13"]
+width = 500
+height = 500
+seamless = true
+seamless_blend_skirt = 0.872
+noise = SubResource("FastNoiseLite_10rtl")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_m70g2"]
+seed = 5
+frequency = 0.049
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_td3m7"]
+width = 500
+height = 500
+seamless = true
+seamless_blend_skirt = 0.0
+noise = SubResource("FastNoiseLite_m70g2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hfnk4"]
+shader = SubResource("Shader_l11qh")
+shader_parameter/scroll1 = Vector2(0.05, 0.05)
+shader_parameter/scroll2 = Vector2(-0.05, -0.05)
+shader_parameter/distorion_strength = 0.0650001
+shader_parameter/tone_color = Color(0.85098, 0.901961, 1, 1)
+shader_parameter/top_color = Color(0.388235, 0.576471, 1, 1)
+shader_parameter/light_start = 0.399
+shader_parameter/light_end = 0.524
+shader_parameter/noise1 = SubResource("NoiseTexture2D_mdm13")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_td3m7")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0sqn3"]
+seed = 5
+frequency = 0.085
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_24ru1"]
+noise = SubResource("FastNoiseLite_0sqn3")
 
 [node name="Menu" type="Control"]
+material = SubResource("CanvasItemMaterial_ea2es")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2ojee")
+script = ExtResource("1_1t4vf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1158.0
+offset_bottom = 661.0
+color = Color(0.333333, 0.333333, 0.333333, 1)
+
+[node name="Start Shadow" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 0
+offset_left = 192.0
+offset_top = 480.0
+offset_right = 432.0
+offset_bottom = 576.0
+color = Color(0, 0, 0, 1)
+
+[node name="PanelShadow" type="ColorRect" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 0
+offset_left = 128.0
+offset_top = 168.0
+offset_right = 896.0
+offset_bottom = 576.0
+color = Color(0, 0, 0, 1)
+
+[node name="Credits Shadow" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 0
+offset_left = 608.0
+offset_top = 480.0
+offset_right = 848.0
+offset_bottom = 576.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title Shadow" type="Label" parent="."]
+self_modulate = Color(0, 0, 0, 0.392157)
+layout_mode = 0
+offset_left = -32.0
+offset_top = 248.0
+offset_right = 1120.0
+offset_bottom = 347.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_font_sizes/font_size = 70
+text = "Liquid Simulation"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_hfnk4")
+position = Vector2(576, 324)
+scale = Vector2(2.25, 1.26563)
+texture = SubResource("NoiseTexture2D_24ru1")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 1152.0
+offset_bottom = 299.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_font_sizes/font_size = 70
+text = "Liquid Simulation"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 432.0
+offset_right = 464.0
+offset_bottom = 528.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 432.0
+offset_right = 880.0
+offset_bottom = 528.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Start" type="Button" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 224.0
+offset_top = 432.0
+offset_right = 464.0
+offset_bottom = 528.0
+theme_override_font_sizes/font_size = 40
+text = "Start"
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 432.0
+offset_right = 880.0
+offset_bottom = 528.0
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+top_level = true
+layout_mode = 0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 960.0
+offset_bottom = 528.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 400.0
+color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 60
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 120.0
+offset_right = 377.0
+offset_bottom = 165.0
+theme_override_font_sizes/font_size = 30
+text = "Programming by"
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 184.0
+offset_right = 376.0
+offset_bottom = 229.0
+theme_override_font_sizes/font_size = 30
+text = "and"
+horizontal_alignment = 2
+
+[node name="Label4" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 248.0
+offset_right = 376.0
+offset_bottom = 293.0
+theme_override_font_sizes/font_size = 30
+text = "Music by"
+horizontal_alignment = 2
+
+[node name="Simonia" type="LinkButton" parent="Panel"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 184.0
+offset_right = 519.0
+offset_bottom = 226.0
+theme_override_font_sizes/font_size = 30
+text = "Simonian"
+uri = "https://simonian.itch.io/"
+
+[node name="thewalkingtrash" type="LinkButton" parent="Panel"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 120.0
+offset_right = 619.0
+offset_bottom = 162.0
+theme_override_font_sizes/font_size = 30
+text = "thewalkingtrash"
+uri = "https://thewalkingtrash.itch.io/?fbclid=IwAR1MGpPHqvYZ1Zn2bE-PDkTVQUUvNnM9htwgf3lPbYnTUJLOmQk3oH0_-j4"
+
+[node name="Menelaos Alexiou" type="LinkButton" parent="Panel"]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 248.0
+offset_right = 638.0
+offset_bottom = 290.0
+theme_override_font_sizes/font_size = 30
+text = "Menelaos Alexiou"
+uri = "https://soundcloud.com/menelaos-alexiou?fbclid=IwAR04Wz_1iLOWy1zMPGX6hEF6mJbRULxx9X_SpzVKjjtOA8fhlABxuv2IWxA"
+
+[node name="Exit" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 312.0
+offset_right = 744.0
+offset_bottom = 376.0
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Panel/Exit" to="." method="_on_exit_pressed"]

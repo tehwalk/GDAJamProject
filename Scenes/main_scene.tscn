@@ -1,17 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://io11cdfm7lpt"]
+[gd_scene load_steps=9 format=3 uid="uid://io11cdfm7lpt"]
 
+[ext_resource type="Script" path="res://GDscripts/main_scene.gd" id="1_c1o3o"]
 [ext_resource type="PackedScene" uid="uid://cxobsb40pkfun" path="res://Components/spawner.tscn" id="1_d3vby"]
-[ext_resource type="PackedScene" uid="uid://bqbncf557kjnr" path="res://Components/tube.tscn" id="2_e4qhj"]
-[ext_resource type="PackedScene" uid="uid://bcx6amwmjywx8" path="res://Components/bowl.tscn" id="3_e7als"]
-[ext_resource type="PackedScene" uid="uid://hjcp0i3whslk" path="res://Components/tube_tee.tscn" id="4_hc3y3"]
-[ext_resource type="Script" path="res://Scripts/Mixer.cs" id="4_y4nhi"]
-[ext_resource type="PackedScene" uid="uid://buc18rrvm4bfr" path="res://Components/tube_elbow.tscn" id="5_48yjv"]
+[ext_resource type="PackedScene" uid="uid://ds8lbqjcj6ouj" path="res://Components/tube.tscn" id="2_e4qhj"]
+[ext_resource type="Texture2D" uid="uid://bcq00dei84qnj" path="res://Components/73450.png" id="4_8qufj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is5xo"]
+size = Vector2(3216, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l76jk"]
+size = Vector2(445, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3nal"]
+size = Vector2(66, 312)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdcaa"]
+size = Vector2(424, 20)
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_c1o3o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(4, 4)
-zoom = Vector2(0.74, 0.74)
+position = Vector2(520, 400)
+zoom = Vector2(0.4, 0.4)
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
@@ -19,34 +30,61 @@ editor_draw_drag_margin = true
 position = Vector2(-337, -246)
 resource = "res://Components/Droplet.tscn"
 radius = 0.0
+dropletColor = Color(1, 0, 0, 1)
 
 [node name="green_spawner" parent="." instance=ExtResource("1_d3vby")]
 position = Vector2(-3, -263)
 resource = "res://Components/Droplet.tscn"
-radius = 0.01
-dropletColor = 1
+radius = 0.0
+dropletColor = Color(0, 1, 0, 1)
 
 [node name="blue_spawner" parent="." instance=ExtResource("1_d3vby")]
 position = Vector2(336, -257)
 resource = "res://Components/Droplet.tscn"
 radius = 0.0
-dropletColor = 2
+dropletColor = Color(0, 0, 1, 1)
 
-[node name="bowl" parent="." instance=ExtResource("3_e7als")]
-position = Vector2(2, 316)
-script = ExtResource("4_y4nhi")
+[node name="Area2D" parent="." instance=ExtResource("2_e4qhj")]
+position = Vector2(-332, 50)
 
-[node name="tube_elbow" parent="." instance=ExtResource("4_hc3y3")]
-position = Vector2(-406, 117)
-scale = Vector2(2, 2)
+[node name="Solinas deksia" type="Button" parent="Area2D"]
+offset_left = -35.0
+offset_top = -31.0
+offset_right = 29.0
+offset_bottom = 33.0
 
-[node name="tube_elbow3" parent="." instance=ExtResource("5_48yjv")]
-position = Vector2(-615, 325)
-scale = Vector2(2, 2)
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/Solinas deksia"]
+position = Vector2(32, 32)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("4_8qufj")
 
-[node name="tube_tee" parent="." instance=ExtResource("2_e4qhj")]
-position = Vector2(-374, 293)
-scale = Vector2(2, 2)
+[node name="Area2D2" parent="." instance=ExtResource("2_e4qhj")]
+position = Vector2(-1, 55)
+
+[node name="Solinas mesi" type="Button" parent="Area2D2"]
+offset_left = -35.0
+offset_top = -32.0
+offset_right = 29.0
+offset_bottom = 32.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2/Solinas mesi"]
+position = Vector2(32, 32)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("4_8qufj")
+
+[node name="Area2D3" parent="." instance=ExtResource("2_e4qhj")]
+position = Vector2(337, 55)
+
+[node name="Solinas aristera" type="Button" parent="Area2D3"]
+offset_left = -34.0
+offset_top = -31.0
+offset_right = 30.0
+offset_bottom = 33.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D3/Solinas aristera"]
+position = Vector2(32, 32)
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("4_8qufj")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -58,10 +96,10 @@ size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 0
-offset_left = -492.0
-offset_top = -414.0
-offset_right = 505.0
-offset_bottom = -347.0
+offset_left = -494.0
+offset_top = -325.0
+offset_right = 503.0
+offset_bottom = -186.0
 alignment = 1
 
 [node name="RedButton" type="Button" parent="Control/HBoxContainer"]
@@ -81,8 +119,45 @@ size_flags_horizontal = 3
 text = "ΜΠΛΕ
 "
 
-[connection signal="body_entered" from="bowl" to="bowl" method="OnDropletEnter"]
-[connection signal="body_exited" from="bowl" to="bowl" method="OnDropletExit"]
+[node name="Thanatos" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Thanatos"]
+position = Vector2(568, 1336)
+shape = SubResource("RectangleShape2D_is5xo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-680, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1697.5, 1176)
+shape = SubResource("RectangleShape2D_l76jk")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1248, 1000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(23, 60)
+shape = SubResource("RectangleShape2D_m3nal")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(744, 1000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(23, 60)
+shape = SubResource("RectangleShape2D_m3nal")
+
+[node name="Niki" type="Area2D" parent="."]
+position = Vector2(-176, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Niki"]
+position = Vector2(1192, 976)
+shape = SubResource("RectangleShape2D_xdcaa")
+
+[connection signal="pressed" from="Area2D/Solinas deksia" to="." method="_on_solinas_deksia_pressed"]
+[connection signal="pressed" from="Area2D2/Solinas mesi" to="." method="_on_solinas_mesi_pressed"]
+[connection signal="pressed" from="Area2D3/Solinas aristera" to="." method="_on_solinas_aristera_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/RedButton" to="red_spawner" method="ResetInternalTimer"]
 [connection signal="pressed" from="Control/HBoxContainer/GreenButton" to="green_spawner" method="ResetInternalTimer"]
 [connection signal="pressed" from="Control/HBoxContainer/BlueButton" to="blue_spawner" method="ResetInternalTimer"]
+[connection signal="body_entered" from="Thanatos" to="." method="_on_thanatos_body_entered"]
+[connection signal="body_exited" from="Niki" to="." method="_on_niki_body_exited"]
