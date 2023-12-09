@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Draggable : StaticBody2D
+public partial class Draggable : Area2D
 {
 	bool isDraggable = false;
 	Vector2 pos;

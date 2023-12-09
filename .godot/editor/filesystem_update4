@@ -1,6 +1,9 @@
-res://Scenes/main_scene.tscn
-res://Components/ball.tscn
-res://Components/test.tscn
-res://Components/Drag.tscn
 res://Scripts/Draggable.cs
+res://Components/SquishDroplet.tscn
+res://Components/test.tscn
 res://Scripts/Spawner.cs
+res://Components/tube.tscn
+res://Scenes/main_scene.tscn
+res://Components/Droplet.tscn
+res://Scenes/menu.tscn
+res://Components/spawner.tscn

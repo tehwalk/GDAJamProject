@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxobsb40pkfun"]
+
+[ext_resource type="Script" path="res://Scripts/Spawner.cs" id="1_kyov2"]
+
+[node name="spawner" type="Node2D"]
+script = ExtResource("1_kyov2")
+resource = "res://Components/SquishDroplet.tscn"
+radius = 0.05
+quantity = 100
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.14
+
+[connection signal="timeout" from="Timer" to="." method="Spawn"]

@@ -1,3 +1,76 @@
-[gd_scene format=3 uid="uid://io11cdfm7lpt"]
+[gd_scene load_steps=3 format=3 uid="uid://io11cdfm7lpt"]
+
+[ext_resource type="PackedScene" uid="uid://cxobsb40pkfun" path="res://Components/spawner.tscn" id="1_d3vby"]
+[ext_resource type="PackedScene" uid="uid://ds8lbqjcj6ouj" path="res://Components/tube.tscn" id="2_e4qhj"]
 
 [node name="MainScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(4, 4)
+zoom = Vector2(0.74, 0.74)
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="red_spawner" parent="." instance=ExtResource("1_d3vby")]
+position = Vector2(-337, -246)
+resource = "res://Components/Droplet.tscn"
+radius = 0.0
+dropletColor = Color(1, 0, 0, 1)
+
+[node name="green_spawner" parent="." instance=ExtResource("1_d3vby")]
+position = Vector2(-3, -263)
+resource = "res://Components/Droplet.tscn"
+radius = 0.0
+dropletColor = Color(0, 1, 0, 1)
+
+[node name="blue_spawner" parent="." instance=ExtResource("1_d3vby")]
+position = Vector2(336, -257)
+resource = "res://Components/Droplet.tscn"
+radius = 0.0
+dropletColor = Color(0, 0, 1, 1)
+
+[node name="Area2D" parent="." instance=ExtResource("2_e4qhj")]
+position = Vector2(-332, 50)
+
+[node name="Area2D2" parent="." instance=ExtResource("2_e4qhj")]
+position = Vector2(-1, 55)
+
+[node name="Area2D3" parent="." instance=ExtResource("2_e4qhj")]
+position = Vector2(337, 55)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = -494.0
+offset_top = -325.0
+offset_right = 503.0
+offset_bottom = -186.0
+alignment = 1
+
+[node name="RedButton" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KOKKINO
+"
+
+[node name="GreenButton" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ΠΡΑΣΙΝΟ"
+
+[node name="BlueButton" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ΜΠΛΕ
+"
+
+[connection signal="pressed" from="Control/HBoxContainer/RedButton" to="red_spawner" method="ResetInternalTimer"]
+[connection signal="pressed" from="Control/HBoxContainer/GreenButton" to="green_spawner" method="ResetInternalTimer"]
+[connection signal="pressed" from="Control/HBoxContainer/BlueButton" to="blue_spawner" method="ResetInternalTimer"]
