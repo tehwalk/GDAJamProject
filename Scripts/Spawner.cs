@@ -7,6 +7,7 @@ public partial class Spawner : Node2D
 	[Export] string resource;
 	[Export] float radius;
 	[Export] int quantity;
+	[Export] Color dropletColor;
 	int existent = 0;
 	PackedScene packed;
 	// Called when the node enters the scene tree for the first time.
@@ -15,12 +16,20 @@ public partial class Spawner : Node2D
 		packed = GD.Load<PackedScene>(resource);
 	}
 
+	public void ResetInternalTimer()
+	{
+		Timer myTimer = GetChild<Timer>(0);
+		existent = 0;
+		myTimer.Start();
+	}
+
 	public void Spawn()
 	{
-		if(existent>=quantity) return;
+		if (existent >= quantity) return;
 		RigidBody2D item = packed.Instantiate() as RigidBody2D;
 		AddChild(item);
-		item.Position = this.Position + new Vector2(x(GD.RandRange(-1,1)), y(GD.RandRange(0,1)));
+		item.GlobalPosition = this.GlobalPosition + new Vector2(x(GD.RandRange(-1, 1)), y(GD.RandRange(0, 1)));
+		item.GetChild<Polygon2D>(0).Color = dropletColor;
 		existent++;
 	}
 

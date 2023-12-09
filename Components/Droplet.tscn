@@ -7,17 +7,21 @@ friction = 0.0
 absorbent = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sunp4"]
-radius = 12.0
+radius = 7.0
 
-[node name="ball" type="RigidBody2D"]
+[node name="droplet" type="RigidBody2D"]
 mass = 2.18
-inertia = 1.29
 physics_material_override = SubResource("PhysicsMaterial_7863t")
 gravity_scale = 0.1
 
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-8, -12, -11, -9, -12, -6, -13, 0, -12, 7, -9, 12, 0, 15, 9, 13, 13, 6, 13, 0, 13, -5, 11, -9, 7, -13, 0, -14)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.28, 0.28)
 texture = ExtResource("1_ews2p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sunp4")
+debug_color = Color(0.592157, 0.54902, 0, 0.419608)
