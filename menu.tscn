@@ -1,12 +1,198 @@
-[gd_scene load_steps=2 format=3 uid="uid://dicgy7frp35sh"]
+[gd_scene load_steps=10 format=3 uid="uid://dicgy7frp35sh"]
 
-[ext_resource type="Script" path="res://menu.gd" id="1_ss2iu"]
+[ext_resource type="Script" path="res://GDscripts/menu.gd" id="1_owcb8"]
+[ext_resource type="Shader" path="res://menu.gdshader" id="2_yqscm"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ea2es"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_10rtl"]
+seed = 4
+frequency = 0.0347
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mdm13"]
+width = 200
+height = 200
+seamless = true
+noise = SubResource("FastNoiseLite_10rtl")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_m70g2"]
+seed = 5
+frequency = 0.0594
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_td3m7"]
+width = 200
+height = 200
+noise = SubResource("FastNoiseLite_m70g2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hfnk4"]
+shader = ExtResource("2_yqscm")
+shader_parameter/scroll1 = Vector2(0.05, 0.05)
+shader_parameter/scroll2 = Vector2(-0.05, -0.05)
+shader_parameter/distorion_strength = 0.0650001
+shader_parameter/tone_color = Color(0.85098, 0.901961, 1, 1)
+shader_parameter/top_color = Color(0.388235, 0.576471, 1, 1)
+shader_parameter/light_start = 0.399
+shader_parameter/light_end = 0.524
+shader_parameter/noise1 = SubResource("NoiseTexture2D_mdm13")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_td3m7")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_24ru1"]
 
 [node name="Menu" type="Control"]
+material = SubResource("CanvasItemMaterial_ea2es")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ss2iu")
+script = ExtResource("1_owcb8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1158.0
+offset_bottom = 661.0
+color = Color(0.333333, 0.333333, 0.333333, 1)
+
+[node name="Start Shadow" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.392157)
+offset_left = 192.0
+offset_top = 480.0
+offset_right = 432.0
+offset_bottom = 576.0
+color = Color(0, 0, 0, 1)
+
+[node name="Credits Shadow" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.392157)
+offset_left = 608.0
+offset_top = 480.0
+offset_right = 848.0
+offset_bottom = 576.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title Shadow" type="Label" parent="."]
+self_modulate = Color(0, 0, 0, 0.392157)
+offset_left = -32.0
+offset_top = 248.0
+offset_right = 1120.0
+offset_bottom = 347.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_font_sizes/font_size = 70
+text = "Liquid Simulation"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_hfnk4")
+position = Vector2(576, 324)
+scale = Vector2(2.25, 1.26563)
+texture = SubResource("NoiseTexture2D_24ru1")
+
+[node name="Title" type="Label" parent="."]
+offset_top = 200.0
+offset_right = 1152.0
+offset_bottom = 299.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_font_sizes/font_size = 70
+text = "Liquid Simulation"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 432.0
+offset_right = 464.0
+offset_bottom = 528.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 432.0
+offset_right = 880.0
+offset_bottom = 528.0
+color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+
+[node name="Start" type="Button" parent="."]
+top_level = true
+offset_left = 224.0
+offset_top = 432.0
+offset_right = 464.0
+offset_bottom = 528.0
+theme_override_font_sizes/font_size = 40
+text = "Start"
+
+[node name="Credits" type="Button" parent="."]
+offset_left = 640.0
+offset_top = 432.0
+offset_right = 880.0
+offset_bottom = 528.0
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+top_level = true
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 1024.0
+offset_bottom = 608.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+layout_mode = 0
+offset_right = 896.0
+offset_bottom = 544.0
+color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 896.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 60
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 128.0
+offset_right = 333.0
+offset_bottom = 173.0
+theme_override_font_sizes/font_size = 30
+text = "Programming by"
+
+[node name="Label4" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 369.0
+offset_bottom = 301.0
+theme_override_font_sizes/font_size = 30
+text = "Music by"
+
+[node name="Simonia" type="LinkButton" parent="Panel"]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 192.0
+offset_right = 447.0
+offset_bottom = 234.0
+theme_override_font_sizes/font_size = 30
+text = "Simonian"
+uri = "https://simonian.itch.io/"
+
+[node name="Exit" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 752.0
+offset_top = 448.0
+offset_right = 856.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Panel/Exit" to="." method="_on_exit_pressed"]

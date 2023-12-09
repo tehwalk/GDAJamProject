@@ -9,3 +9,15 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_exit_pressed():
+	$Panel.visible=false
+
+
+func _on_credits_pressed():
+	$Panel.visible=true
+
+
+func _on_start_pressed():
+	get_tree().change_scene_to_file("res://selection_scene.tscn")
