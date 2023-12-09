@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://io11cdfm7lpt"]
+[gd_scene load_steps=7 format=3 uid="uid://io11cdfm7lpt"]
 
 [ext_resource type="PackedScene" uid="uid://cxobsb40pkfun" path="res://Components/spawner.tscn" id="1_d3vby"]
-[ext_resource type="PackedScene" uid="uid://ds8lbqjcj6ouj" path="res://Components/tube.tscn" id="2_e4qhj"]
+[ext_resource type="PackedScene" uid="uid://bqbncf557kjnr" path="res://Components/tube.tscn" id="2_e4qhj"]
+[ext_resource type="PackedScene" uid="uid://bcx6amwmjywx8" path="res://Components/bowl.tscn" id="3_e7als"]
+[ext_resource type="PackedScene" uid="uid://hjcp0i3whslk" path="res://Components/tube_tee.tscn" id="4_hc3y3"]
+[ext_resource type="Script" path="res://Scripts/Mixer.cs" id="4_y4nhi"]
+[ext_resource type="PackedScene" uid="uid://buc18rrvm4bfr" path="res://Components/tube_elbow.tscn" id="5_48yjv"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -15,28 +19,34 @@ editor_draw_drag_margin = true
 position = Vector2(-337, -246)
 resource = "res://Components/Droplet.tscn"
 radius = 0.0
-dropletColor = Color(1, 0, 0, 1)
 
 [node name="green_spawner" parent="." instance=ExtResource("1_d3vby")]
 position = Vector2(-3, -263)
 resource = "res://Components/Droplet.tscn"
-radius = 0.0
-dropletColor = Color(0, 1, 0, 1)
+radius = 0.01
+dropletColor = 1
 
 [node name="blue_spawner" parent="." instance=ExtResource("1_d3vby")]
 position = Vector2(336, -257)
 resource = "res://Components/Droplet.tscn"
 radius = 0.0
-dropletColor = Color(0, 0, 1, 1)
+dropletColor = 2
 
-[node name="Area2D" parent="." instance=ExtResource("2_e4qhj")]
-position = Vector2(-332, 50)
+[node name="bowl" parent="." instance=ExtResource("3_e7als")]
+position = Vector2(2, 316)
+script = ExtResource("4_y4nhi")
 
-[node name="Area2D2" parent="." instance=ExtResource("2_e4qhj")]
-position = Vector2(-1, 55)
+[node name="tube_elbow" parent="." instance=ExtResource("4_hc3y3")]
+position = Vector2(-406, 117)
+scale = Vector2(2, 2)
 
-[node name="Area2D3" parent="." instance=ExtResource("2_e4qhj")]
-position = Vector2(337, 55)
+[node name="tube_elbow3" parent="." instance=ExtResource("5_48yjv")]
+position = Vector2(-615, 325)
+scale = Vector2(2, 2)
+
+[node name="tube_tee" parent="." instance=ExtResource("2_e4qhj")]
+position = Vector2(-374, 293)
+scale = Vector2(2, 2)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -48,10 +58,10 @@ size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 0
-offset_left = -494.0
-offset_top = -325.0
-offset_right = 503.0
-offset_bottom = -186.0
+offset_left = -492.0
+offset_top = -414.0
+offset_right = 505.0
+offset_bottom = -347.0
 alignment = 1
 
 [node name="RedButton" type="Button" parent="Control/HBoxContainer"]
@@ -71,6 +81,8 @@ size_flags_horizontal = 3
 text = "ΜΠΛΕ
 "
 
+[connection signal="body_entered" from="bowl" to="bowl" method="OnDropletEnter"]
+[connection signal="body_exited" from="bowl" to="bowl" method="OnDropletExit"]
 [connection signal="pressed" from="Control/HBoxContainer/RedButton" to="red_spawner" method="ResetInternalTimer"]
 [connection signal="pressed" from="Control/HBoxContainer/GreenButton" to="green_spawner" method="ResetInternalTimer"]
 [connection signal="pressed" from="Control/HBoxContainer/BlueButton" to="blue_spawner" method="ResetInternalTimer"]

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bcx6amwmjywx8"]
+
+[node name="bowl" type="Area2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-105, -10, -86, 19, -65, 42, -41, 58, -30, 67, 18, 67, 41, 52, 76, 14, 91, -10)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = -2
+color = Color(0.835294, 0.835294, 0.835294, 1)
+polygon = PackedVector2Array(-114, -10, -89, 29, -65, 56, -35, 77, 22, 77, 51, 57, 77, 27, 104, -10)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-114, -10, -105, -10, -86, 19, -65, 42, -41, 58, -30, 67, 18, 67, 41, 52, 76, 14, 91, -10, 104, -10, 86, 15, 77, 27, 66, 40, 51, 57, 22, 77, -35, 77, -65, 56, -89, 29, -92, 24)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-114, -10, -105, -10, -86, 19, -65, 42, -41, 58, -30, 67, 18, 67, 41, 52, 76, 14, 91, -10, 104, -10, 77, 27, 51, 57, 22, 77, -35, 77, -65, 56, -89, 29, -92, 24)

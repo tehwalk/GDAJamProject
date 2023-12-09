@@ -18,7 +18,11 @@ public partial class Draggable : Area2D
 		{
 			this.Position = GetGlobalMousePosition();
 		} 
-		 
+
+		if(Input.IsActionJustPressed("Click") && isDraggable)
+		{
+			this.Rotation += Mathf.DegToRad(90f);
+		} 
 	}
 
 
