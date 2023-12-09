@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxmkfr6scfcrq"]
+
+[ext_resource type="Texture2D" uid="uid://bnhkb3pihssq1" path="res://icon.svg" id="1_s3g5t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lvom"]
+size = Vector2(121, 112)
+
+[node name="Drag" type="StaticBody2D"]
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_2lvom")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_s3g5t")
