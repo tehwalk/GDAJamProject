@@ -15,15 +15,10 @@ public partial class Draggable : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if(Input.IsMouseButtonPressed(MouseButton.Left) && isDraggable)
+		if (Input.IsActionPressed("Click") && isDraggable)
 		{
 			this.Position = GetGlobalMousePosition();
-		} 
-
-		/* if(Input.IsActionJustPressed("Click") && isDraggable)
-		{
-			this.Rotation += Mathf.DegToRad(90f);
-		}  */
+		}
 	}
 
 	public void OnRotationClicked()
@@ -40,14 +35,5 @@ public partial class Draggable : Area2D
 	{
 		isDraggable = false;
 	}
-
-   /*  public override void _Input(InputEvent @event)
-	{
-	   if(@event is InputEventMouseButton eventMouse && isDraggable)
-	   {
-			pos = GetLocalMousePosition()
-	   }
-	} */
-
 
 }
