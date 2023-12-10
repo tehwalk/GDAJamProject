@@ -1,13 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://io11cdfm7lpt"]
+[gd_scene load_steps=15 format=3 uid="uid://io11cdfm7lpt"]
 
 [ext_resource type="Script" path="res://GDscripts/main_scene.gd" id="1_c1o3o"]
 [ext_resource type="PackedScene" uid="uid://cxobsb40pkfun" path="res://Components/spawner.tscn" id="1_d3vby"]
 [ext_resource type="PackedScene" uid="uid://bqbncf557kjnr" path="res://Components/tube.tscn" id="2_e4qhj"]
+[ext_resource type="Texture2D" uid="uid://c6lhx5uv287x2" path="res://Kitchen.png" id="2_htmw6"]
 [ext_resource type="PackedScene" uid="uid://g33rylcp3dn0" path="res://Components/canvas_layer.tscn" id="2_ijty5"]
 [ext_resource type="Theme" uid="uid://g7508b78n0pr" path="res://text.theme" id="3_dws38"]
 [ext_resource type="PackedScene" uid="uid://buc18rrvm4bfr" path="res://Components/tube_elbow.tscn" id="4_kjsws"]
 [ext_resource type="PackedScene" uid="uid://hjcp0i3whslk" path="res://Components/tube_tee.tscn" id="5_reryo"]
 [ext_resource type="Texture2D" uid="uid://483cqc2wm4p6" path="res://Mpolaki.png" id="8_uful5"]
+[ext_resource type="Texture2D" uid="uid://y4c3mxmchqgr" path="res://Kitchen counter.png" id="10_ups4t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is5xo"]
 size = Vector2(3216, 122)
@@ -24,6 +26,12 @@ size = Vector2(424, 20)
 [node name="MainScene" type="Node2D" node_paths=PackedStringArray("label")]
 script = ExtResource("1_c1o3o")
 label = NodePath("CanvasLayer/Control/Label")
+
+[node name="Kitchen" type="Sprite2D" parent="."]
+modulate = Color(0.219608, 0.219608, 0.219608, 1)
+position = Vector2(-104, -760)
+scale = Vector2(16, 16)
+texture = ExtResource("2_htmw6")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_ijty5")]
 layer = 0
@@ -47,6 +55,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(8, -144)
 zoom = Vector2(0.4, 0.4)
 editor_draw_limits = true
 editor_draw_drag_margin = true
@@ -122,6 +131,11 @@ position = Vector2(1192, 976)
 shape = SubResource("RectangleShape2D_xdcaa")
 
 [node name="music_player" type="AudioStreamPlayer2D" parent="."]
+
+[node name="KitchenCounter" type="Sprite2D" parent="."]
+position = Vector2(-1344, 256)
+scale = Vector2(8, 8)
+texture = ExtResource("10_ups4t")
 
 [connection signal="toggled" from="CanvasLayer/Control/Button" to="red_spawner" method="Run"]
 [connection signal="body_entered" from="Thanatos" to="." method="_on_thanatos_body_entered"]

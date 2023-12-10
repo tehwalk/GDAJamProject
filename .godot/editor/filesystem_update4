@@ -1,6 +1,6 @@
-res://Components/Droplet.tscn
-res://Scripts/Draggable.cs
 res://Scenes/main_scene.tscn
+res://Scripts/Draggable.cs
+res://Components/Droplet.tscn
 res://Components/tube_elbow.tscn
 res://Components/tube_tee.tscn
 res://Components/spawner.tscn
