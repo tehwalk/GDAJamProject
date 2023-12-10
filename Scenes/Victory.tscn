@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://d4k1dqsr6w2eq"]
+[gd_scene load_steps=14 format=3 uid="uid://d4k1dqsr6w2eq"]
 
 [ext_resource type="Script" path="res://GDscripts/defeat.gd" id="1_1loba"]
-[ext_resource type="AudioStream" uid="uid://beqtucj3dfowg" path="res://audio/Music/win.wav" id="2_2ud54"]
+[ext_resource type="Texture2D" uid="uid://ce1rbgddfids0" path="res://Menu Kato.png" id="2_x013g"]
+[ext_resource type="Texture2D" uid="uid://0o6a56w0ux2h" path="res://Menu Pano.png" id="3_rsfwl"]
+[ext_resource type="AudioStream" uid="uid://beqtucj3dfowg" path="res://audio/Music/win.wav" id="4_jx5k6"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ea2es"]
 
@@ -53,11 +55,11 @@ noise = SubResource("FastNoiseLite_m70g2")
 shader = SubResource("Shader_l11qh")
 shader_parameter/scroll1 = Vector2(0.05, 0.05)
 shader_parameter/scroll2 = Vector2(-0.05, -0.05)
-shader_parameter/distorion_strength = 0.0650001
+shader_parameter/distorion_strength = 0.00500005
 shader_parameter/tone_color = Color(0.85098, 0.901961, 1, 1)
 shader_parameter/top_color = Color(0.388235, 0.576471, 1, 1)
-shader_parameter/light_start = 0.399
-shader_parameter/light_end = 0.524
+shader_parameter/light_start = 0.661
+shader_parameter/light_end = 0.71
 shader_parameter/noise1 = SubResource("NoiseTexture2D_mdm13")
 shader_parameter/noise2 = SubResource("NoiseTexture2D_td3m7")
 
@@ -83,6 +85,11 @@ layout_mode = 0
 offset_right = 1158.0
 offset_bottom = 661.0
 color = Color(0.333333, 0.333333, 0.333333, 1)
+
+[node name="MenuKato" type="Sprite2D" parent="."]
+position = Vector2(824, 328)
+scale = Vector2(8.2, 8.2)
+texture = ExtResource("2_x013g")
 
 [node name="Start Shadow" type="ColorRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.392157)
@@ -132,6 +139,12 @@ material = SubResource("ShaderMaterial_hfnk4")
 position = Vector2(576, 324)
 scale = Vector2(2.25, 1.26563)
 texture = SubResource("NoiseTexture2D_24ru1")
+
+[node name="MenuPano" type="Sprite2D" parent="."]
+modulate = Color(0.647059, 0.647059, 0.647059, 1)
+position = Vector2(800, 312)
+scale = Vector2(8, 8)
+texture = ExtResource("3_rsfwl")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
@@ -274,7 +287,7 @@ theme_override_font_sizes/font_size = 30
 text = "Exit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_2ud54")
+stream = ExtResource("4_jx5k6")
 autoplay = true
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

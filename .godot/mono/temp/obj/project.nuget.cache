@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "/GuEs4OJgACrG3pfNo0jTy+hjdxPVUebOSsgVhnWuYrLlHOjW385ORoms525V3N/ClitXjUlgdKxicJ7ak7gdw==",
+  "dgSpecHash": "4lf7g24L1bm5/HFQEw5hbSzSP4IG1XXUpJJYxftwEdtaFivvBM00AauFmZyQBl8yQJIAHUuxMAzB/mIvO6ud2g==",
   "success": true,
   "projectFilePath": "E:\\GDAJam\\GDAJamProject\\Gda Jam.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ΕΙΡΗΝΗ\\.nuget\\packages\\godot.sourcegenerators\\4.1.1\\godot.sourcegenerators.4.1.1.nupkg.sha512",
     "C:\\Users\\ΕΙΡΗΝΗ\\.nuget\\packages\\godotsharp\\4.1.1\\godotsharp.4.1.1.nupkg.sha512",
-    "C:\\Users\\ΕΙΡΗΝΗ\\.nuget\\packages\\godotsharpeditor\\4.1.1\\godotsharpeditor.4.1.1.nupkg.sha512"
+    "C:\\Users\\ΕΙΡΗΝΗ\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.22\\microsoft.netcore.app.runtime.win-x64.6.0.22.nupkg.sha512",
+    "C:\\Users\\ΕΙΡΗΝΗ\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.22\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.22.nupkg.sha512",
+    "C:\\Users\\ΕΙΡΗΝΗ\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.22\\microsoft.aspnetcore.app.runtime.win-x64.6.0.22.nupkg.sha512"
   ],
   "logs": []
 }

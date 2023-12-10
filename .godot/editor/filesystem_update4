@@ -1,8 +1,10 @@
 res://Scenes/menu.tscn
+res://GDscripts/main_scene.gd
 res://Scripts/Draggable.cs
 res://text.theme
-res://Components/Droplet.tscn
 res://Scenes/defeat.tscn
+res://Scenes/Victory.tscn
+res://Components/Droplet.tscn
 res://Scenes/main_scene.tscn
 res://Scripts/DroplerAudio.cs
 res://Scripts/Mixer.cs

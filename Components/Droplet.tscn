@@ -9,7 +9,7 @@ radius = 7.0
 
 [node name="droplet" type="RigidBody2D"]
 mass = 5.81
-inertia = 1.16
+inertia = 5.43
 physics_material_override = SubResource("PhysicsMaterial_7863t")
 gravity_scale = 0.1
 max_contacts_reported = 1
