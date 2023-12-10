@@ -7,5 +7,9 @@ res://Components/spawner.tscn
 res://Components/canvas_layer.tscn
 res://Components/tube.tscn
 res://Components/rotation_button.tscn
+res://Scripts/DroplerAudio.cs
 res://Scripts/Mixer.cs
 res://Scripts/Spawner.cs
+res://Scenes/menu.tscn
+res://Scenes/Victory.tscn
+res://Scenes/defeat.tscn

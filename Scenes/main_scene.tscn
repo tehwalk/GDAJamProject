@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://io11cdfm7lpt"]
+[gd_scene load_steps=15 format=3 uid="uid://io11cdfm7lpt"]
 
 [ext_resource type="Script" path="res://GDscripts/main_scene.gd" id="1_c1o3o"]
 [ext_resource type="PackedScene" uid="uid://cxobsb40pkfun" path="res://Components/spawner.tscn" id="1_d3vby"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://g33rylcp3dn0" path="res://Components/canvas_layer.tscn" id="2_ijty5"]
 [ext_resource type="Theme" uid="uid://g7508b78n0pr" path="res://text.theme" id="3_dws38"]
 [ext_resource type="PackedScene" uid="uid://buc18rrvm4bfr" path="res://Components/tube_elbow.tscn" id="4_kjsws"]
+[ext_resource type="Texture2D" uid="uid://8r42it45f6c1" path="res://Noise.png" id="5_ddakn"]
 [ext_resource type="PackedScene" uid="uid://hjcp0i3whslk" path="res://Components/tube_tee.tscn" id="5_reryo"]
 [ext_resource type="Texture2D" uid="uid://483cqc2wm4p6" path="res://Mpolaki.png" id="8_uful5"]
+[ext_resource type="AudioStream" uid="uid://dx5dkcclmt378" path="res://audio/Music/gameplay.wav" id="9_sm0a2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is5xo"]
 size = Vector2(3216, 122)
@@ -64,26 +66,33 @@ position = Vector2(-544, -592)
 position = Vector2(568, 1336)
 shape = SubResource("RectangleShape2D_is5xo")
 
+[node name="Polygon2D" type="Polygon2D" parent="Thanatos"]
+z_index = -3
+texture_repeat = 2
+color = Color(0.839216, 0.427451, 0.0901961, 1)
+texture = ExtResource("5_ddakn")
+polygon = PackedVector2Array(-1008, 1272, 2144, 1272, 2144, 1400, -1008, 1400)
+
 [node name="tube_tee3" parent="." instance=ExtResource("2_e4qhj")]
-position = Vector2(200, -176)
+position = Vector2(-896, 576)
 
 [node name="tube_tee2" parent="." instance=ExtResource("2_e4qhj")]
-position = Vector2(-8, -184)
+position = Vector2(-1128, 568)
 
 [node name="tube_tee" parent="." instance=ExtResource("2_e4qhj")]
-position = Vector2(-200, -192)
+position = Vector2(-1296, 568)
 
 [node name="tube_elbow" parent="." instance=ExtResource("4_kjsws")]
-position = Vector2(624, -144)
+position = Vector2(-456, 608)
 
 [node name="tube_elbow2" parent="." instance=ExtResource("4_kjsws")]
-position = Vector2(936, -152)
+position = Vector2(-176, 608)
 
 [node name="tube_elbow3" parent="." instance=ExtResource("4_kjsws")]
-position = Vector2(1256, -152)
+position = Vector2(120, 608)
 
 [node name="tube_tee4" parent="." instance=ExtResource("5_reryo")]
-position = Vector2(432, -136)
+position = Vector2(-672, 624)
 
 [node name="bowl" type="Node2D" parent="."]
 position = Vector2(56, 16)
@@ -121,7 +130,9 @@ position = Vector2(-376, -616)
 position = Vector2(1192, 976)
 shape = SubResource("RectangleShape2D_xdcaa")
 
-[node name="music_player" type="AudioStreamPlayer2D" parent="."]
+[node name="music_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_sm0a2")
+autoplay = true
 
 [connection signal="toggled" from="CanvasLayer/Control/Button" to="red_spawner" method="Run"]
 [connection signal="body_entered" from="Thanatos" to="." method="_on_thanatos_body_entered"]

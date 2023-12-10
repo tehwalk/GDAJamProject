@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqejlsb5eyi8b"]
+[gd_scene load_steps=12 format=3 uid="uid://bqejlsb5eyi8b"]
 
 [ext_resource type="Script" path="res://GDscripts/defeat.gd" id="1_2kyqk"]
+[ext_resource type="AudioStream" uid="uid://ok37j1aok3pw" path="res://audio/Music/lost.wav" id="2_rcnr5"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ea2es"]
 
@@ -271,6 +272,10 @@ offset_right = 744.0
 offset_bottom = 376.0
 theme_override_font_sizes/font_size = 30
 text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rcnr5")
+autoplay = true
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

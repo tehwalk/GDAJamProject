@@ -27,8 +27,9 @@ func _on_solinas_aristera_pressed():
 
 
 func _on_thanatos_body_entered(body):
-	print("xasame") # Αυτό θα σε στέλνει στο you loose
-	get_tree().change_scene_to_file("res://Scenes/defeat.tscn")
+	if body.has_meta("isDroplet") && body.get_meta("isDroplet") == true:
+		print("xasame") # Αυτό θα σε στέλνει στο you loose
+		get_tree().change_scene_to_file("res://Scenes/defeat.tscn")
 
 
 func _on_niki_body_exited(body):

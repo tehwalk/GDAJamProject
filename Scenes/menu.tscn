@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dicgy7frp35sh"]
+[gd_scene load_steps=12 format=3 uid="uid://dicgy7frp35sh"]
 
 [ext_resource type="Script" path="res://GDscripts/menu.gd" id="1_1t4vf"]
+[ext_resource type="AudioStream" uid="uid://ckb8j3vx3gdee" path="res://audio/Music/menu.wav" id="2_52jqv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ea2es"]
 
@@ -140,7 +141,7 @@ offset_bottom = 299.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 50
 theme_override_font_sizes/font_size = 70
-text = "Liquid Simulation"
+text = "Not A Drop Lost!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -271,6 +272,10 @@ offset_right = 744.0
 offset_bottom = 376.0
 theme_override_font_sizes/font_size = 30
 text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_52jqv")
+autoplay = true
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

@@ -1,4 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://da2cahbacplew"]
+[gd_scene load_steps=9 format=3 uid="uid://da2cahbacplew"]
+
+[ext_resource type="Script" path="res://Scripts/DroplerAudio.cs" id="1_inrv2"]
+[ext_resource type="AudioStream" uid="uid://kq8al5xkynmu" path="res://audio/Effects/drop1.wav" id="2_s32ug"]
+[ext_resource type="AudioStream" uid="uid://pmegryyassnj" path="res://audio/Effects/drop2.wav" id="3_to1vx"]
+[ext_resource type="AudioStream" uid="uid://mxr888i8m24c" path="res://audio/Effects/drop3.wav" id="4_n7yl4"]
+[ext_resource type="AudioStream" uid="uid://d1d5epmemddiv" path="res://audio/Effects/drop4.wav" id="5_g3xfs"]
+[ext_resource type="AudioStream" uid="uid://btqy5c06y0k14" path="res://audio/Effects/drop5.wav" id="6_0fvof"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7863t"]
 friction = 0.0
@@ -22,3 +29,7 @@ shape = SubResource("CircleShape2D_sunp4")
 debug_color = Color(0.592157, 0.54902, 0, 0.419608)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("1_inrv2")
+sounds = Array[AudioStream]([ExtResource("2_s32ug"), ExtResource("3_to1vx"), ExtResource("4_n7yl4"), ExtResource("5_g3xfs"), ExtResource("6_0fvof")])
+
+[connection signal="body_entered" from="." to="AudioStreamPlayer2D" method="PlayRandomSound"]
