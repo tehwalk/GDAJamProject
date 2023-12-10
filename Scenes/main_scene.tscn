@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://io11cdfm7lpt"]
+[gd_scene load_steps=13 format=3 uid="uid://io11cdfm7lpt"]
 
 [ext_resource type="Script" path="res://GDscripts/main_scene.gd" id="1_c1o3o"]
 [ext_resource type="PackedScene" uid="uid://cxobsb40pkfun" path="res://Components/spawner.tscn" id="1_d3vby"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://g7508b78n0pr" path="res://text.theme" id="3_dws38"]
 [ext_resource type="PackedScene" uid="uid://buc18rrvm4bfr" path="res://Components/tube_elbow.tscn" id="4_kjsws"]
 [ext_resource type="PackedScene" uid="uid://hjcp0i3whslk" path="res://Components/tube_tee.tscn" id="5_reryo"]
+[ext_resource type="Texture2D" uid="uid://483cqc2wm4p6" path="res://Mpolaki.png" id="8_uful5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is5xo"]
 size = Vector2(3216, 122)
@@ -20,14 +21,18 @@ size = Vector2(66, 312)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdcaa"]
 size = Vector2(424, 20)
 
-[node name="MainScene" type="Node2D"]
+[node name="MainScene" type="Node2D" node_paths=PackedStringArray("label")]
 script = ExtResource("1_c1o3o")
+label = NodePath("CanvasLayer/Control/Label")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_ijty5")]
+layer = 0
 follow_viewport_enabled = true
 
 [node name="Button" parent="CanvasLayer/Control" index="0"]
+layout_mode = 1
 theme = ExtResource("3_dws38")
+toggle_mode = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Control" index="1"]
 layout_mode = 0
@@ -83,6 +88,11 @@ position = Vector2(432, -136)
 [node name="bowl" type="Node2D" parent="."]
 position = Vector2(56, 16)
 
+[node name="Sprite2D" type="Sprite2D" parent="bowl"]
+position = Vector2(816, 512)
+scale = Vector2(16.8403, 16.4444)
+texture = ExtResource("8_uful5")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="bowl"]
 position = Vector2(-880, -568)
 
@@ -111,7 +121,9 @@ position = Vector2(-376, -616)
 position = Vector2(1192, 976)
 shape = SubResource("RectangleShape2D_xdcaa")
 
-[connection signal="pressed" from="CanvasLayer/Control/Button" to="red_spawner" method="ResetInternalTimer"]
+[node name="music_player" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="toggled" from="CanvasLayer/Control/Button" to="red_spawner" method="Run"]
 [connection signal="body_entered" from="Thanatos" to="." method="_on_thanatos_body_entered"]
 [connection signal="body_exited" from="bowl/Niki" to="." method="_on_niki_body_exited"]
 

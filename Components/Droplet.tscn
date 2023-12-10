@@ -9,6 +9,7 @@ radius = 7.0
 
 [node name="droplet" type="RigidBody2D"]
 mass = 2.18
+inertia = 1.16
 physics_material_override = SubResource("PhysicsMaterial_7863t")
 gravity_scale = 0.1
 metadata/isDroplet = true
@@ -19,3 +20,5 @@ polygon = PackedVector2Array(-8, -12, -11, -9, -12, -6, -13, 0, -12, 7, -9, 12, 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sunp4")
 debug_color = Color(0.592157, 0.54902, 0, 0.419608)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

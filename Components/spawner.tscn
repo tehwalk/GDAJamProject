@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxobsb40pkfun"]
 
 [ext_resource type="Script" path="res://Scripts/Spawner.cs" id="1_kyov2"]
-[ext_resource type="Texture2D" uid="uid://bnhkb3pihssq1" path="res://icon.svg" id="2_11osa"]
+[ext_resource type="Texture2D" uid="uid://dhh3mnjprsy3l" path="res://Brisi.png" id="2_45qdh"]
 
 [node name="spawner" type="Node2D"]
 script = ExtResource("1_kyov2")
@@ -13,8 +13,10 @@ quantity = 100
 wait_time = 0.14
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3.33786e-06, 0.5)
-scale = Vector2(0.578125, 0.554688)
-texture = ExtResource("2_11osa")
+texture_filter = 1
+position = Vector2(-93, -81)
+scale = Vector2(8.52226, 8.17677)
+texture = ExtResource("2_45qdh")
+flip_h = true
 
 [connection signal="timeout" from="Timer" to="." method="Spawn"]

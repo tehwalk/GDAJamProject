@@ -1,10 +1,11 @@
 extends Node2D
 
 var mpalakia=0
+@export var label:Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	_update_label()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,4 +33,8 @@ func _on_thanatos_body_entered(body):
 
 func _on_niki_body_exited(body):
 	mpalakia+=1
+	_update_label()
 	print(mpalakia)
+
+func _update_label():
+	label.text = "Drops: " + str(mpalakia) + "/300"

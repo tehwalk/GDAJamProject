@@ -1,9 +1,10 @@
+AudioStreamPlayer2D
+Sprite2D
 Label
 Button
 Control
 CanvasLayer
 Node2D
-Sprite2D
 CollisionShape2D
 Area2D
 StaticBody2D
