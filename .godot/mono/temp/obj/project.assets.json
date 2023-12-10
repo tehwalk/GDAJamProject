@@ -11,14 +11,10 @@
       "GodotSharp/4.1.1": {
         "type": "package",
         "compile": {
-          "lib/net6.0/GodotSharp.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/GodotSharp.dll": {}
         },
         "runtime": {
-          "lib/net6.0/GodotSharp.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/GodotSharp.dll": {}
         }
       },
       "GodotSharpEditor/4.1.1": {
@@ -27,14 +23,10 @@
           "GodotSharp": "4.1.1"
         },
         "compile": {
-          "lib/net6.0/GodotSharpEditor.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/GodotSharpEditor.dll": {}
         },
         "runtime": {
-          "lib/net6.0/GodotSharpEditor.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/GodotSharpEditor.dll": {}
         }
       }
     }
@@ -88,26 +80,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ΕΙΡΗΝΗ\\.nuget\\packages\\": {}
+    "C:\\Users\\Simos\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\GDAJam\\GDAJamProject\\Gda Jam.csproj",
+      "projectUniqueName": "C:\\Users\\Simos\\Desktop\\GameDev\\GDAJamProject\\Gda Jam.csproj",
       "projectName": "Gda Jam",
-      "projectPath": "E:\\GDAJam\\GDAJamProject\\Gda Jam.csproj",
-      "packagesPath": "C:\\Users\\ΕΙΡΗΝΗ\\.nuget\\packages\\",
-      "outputPath": "E:\\GDAJam\\GDAJamProject\\.godot\\mono\\temp\\obj\\",
+      "projectPath": "C:\\Users\\Simos\\Desktop\\GameDev\\GDAJamProject\\Gda Jam.csproj",
+      "packagesPath": "C:\\Users\\Simos\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Simos\\Desktop\\GameDev\\GDAJamProject\\.godot\\mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ΕΙΡΗΝΗ\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Simos\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -145,8 +135,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -155,7 +144,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
