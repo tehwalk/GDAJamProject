@@ -4,10 +4,11 @@ using System;
 
 public partial class Spawner : Node2D
 {
+	enum DropletColor { Red, Green, Blue }
 	[Export] string resource;
 	[Export] float radius;
 	[Export] int quantity;
-	[Export] Color dropletColor;
+	[Export] DropletColor dropletColor;
 	int existent = 0;
 	PackedScene packed;
 	// Called when the node enters the scene tree for the first time.
@@ -29,7 +30,19 @@ public partial class Spawner : Node2D
 		RigidBody2D item = packed.Instantiate() as RigidBody2D;
 		AddChild(item);
 		item.GlobalPosition = this.GlobalPosition + new Vector2(x(GD.RandRange(-1, 1)), y(GD.RandRange(0, 1)));
-		item.GetChild<Polygon2D>(0).Color = dropletColor;
+		switch (dropletColor)
+		{
+			case DropletColor.Red:
+				item.GetChild<Polygon2D>(0).Color = Colors.Red;
+				break;
+			case DropletColor.Green:
+				item.GetChild<Polygon2D>(0).Color = Colors.Green;
+				break;
+			case DropletColor.Blue:
+				item.GetChild<Polygon2D>(0).Color = Colors.Blue;
+				break;
+
+		}
 		existent++;
 	}
 

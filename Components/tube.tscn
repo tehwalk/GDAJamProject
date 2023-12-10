@@ -1,55 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds8lbqjcj6ouj"]
+[gd_scene load_steps=4 format=3 uid="uid://bqbncf557kjnr"]
 
 [ext_resource type="Script" path="res://Scripts/Draggable.cs" id="1_16jrf"]
-[ext_resource type="Texture2D" uid="uid://bnhkb3pihssq1" path="res://icon.svg" id="2_xnie4"]
+[ext_resource type="PackedScene" uid="uid://cvuplq8ai6u8c" path="res://Components/rotation_button.tscn" id="2_jw4sc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fk75v"]
-size = Vector2(187, 454)
+[sub_resource type="CanvasTexture" id="CanvasTexture_ght7q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky28k"]
-size = Vector2(65.5, 453)
-
-[node name="tube" type="Area2D"]
+[node name="tube_tee" type="Area2D"]
+scale = Vector2(3, 3)
 script = ExtResource("1_16jrf")
+rotationDegrees = 45.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.0901961, 0.0901961, 0.0901961, 1)
+[node name="Polygon2D" type="Polygon2D" parent="."]
 z_index = -2
-position = Vector2(0, 4.00001)
-scale = Vector2(1, 3.5)
-texture = ExtResource("2_xnie4")
+texture = SubResource("CanvasTexture_ght7q")
+polygon = PackedVector2Array(-14, -36, 13, -36, 13, 47, -14, 47)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_fk75v")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-14, -36, -14, 47, 13, 47, 13, -36)
 
-[node name="pipe" type="StaticBody2D" parent="."]
-position = Vector2(40, 0)
-input_pickable = true
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="pipe"]
-position = Vector2(-98.0001, 1.99999)
-scale = Vector2(0.453126, 3.46875)
-texture = ExtResource("2_xnie4")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-18, -36, -14, -36, -14, 47, -18, 47)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pipe"]
-position = Vector2(-101.75, 0)
-shape = SubResource("RectangleShape2D_ky28k")
-debug_color = Color(0.878431, 0.313726, 0.360784, 0.419608)
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-18, -36, -14, -36, -14, 47, -18, 47)
 
-[node name="pipe2" type="StaticBody2D" parent="."]
-position = Vector2(161, 0)
-input_pickable = true
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(-1, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="pipe2"]
-position = Vector2(-98.0001, 1.99999)
-scale = Vector2(0.453126, 3.46875)
-texture = ExtResource("2_xnie4")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
+polygon = PackedVector2Array(-18, -36, -14, -36, -14, 47, -18, 47)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pipe2"]
-position = Vector2(-101.75, 0)
-shape = SubResource("RectangleShape2D_ky28k")
-debug_color = Color(0.878431, 0.313726, 0.360784, 0.419608)
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
+polygon = PackedVector2Array(-18, -36, -14, -36, -14, 47, -18, 47)
+
+[node name="Solinas deksia" parent="." instance=ExtResource("2_jw4sc")]
 
 [connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
 [connection signal="mouse_exited" from="." to="." method="OnMouseExited"]
+[connection signal="pressed" from="Solinas deksia" to="." method="OnRotationClicked"]
