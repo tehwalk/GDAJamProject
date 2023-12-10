@@ -1,5 +1,3 @@
-Polygon2D
-AudioStreamPlayer
 AudioStreamPlayer2D
 Sprite2D
 Label
@@ -10,6 +8,7 @@ Node2D
 CollisionShape2D
 Area2D
 StaticBody2D
+Polygon2D
 HBoxContainer
 Camera2D
 SoftBody2DRigidBody

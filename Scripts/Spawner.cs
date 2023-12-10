@@ -8,7 +8,7 @@ public partial class Spawner : Node2D
 	[Export] float radius;
 	[Export] int quantity;
 	[Export] Color myColor;
-	//int existent = 0;
+	int existent = 0;
 	PackedScene packed;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -19,7 +19,7 @@ public partial class Spawner : Node2D
 	public void Run(bool isToggledOn)
 	{
 		Timer myTimer = GetChild<Timer>(0);
-		//existent = 0;
+		existent = 0;
 		if(isToggledOn) myTimer.Start();
 		else myTimer.Stop();
 	}
@@ -31,7 +31,7 @@ public partial class Spawner : Node2D
 		AddChild(item);
 		item.GlobalPosition = this.GlobalPosition + new Vector2(x(GD.RandRange(-1, 1)), y(GD.RandRange(0, 1)));
 		item.GetChild<Polygon2D>(0).Color = myColor;
-		//existent++;
+		existent++;
 	}
 
 	float x(float t)
