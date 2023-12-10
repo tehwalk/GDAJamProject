@@ -1,18 +1,20 @@
-[gd_scene load_steps=15 format=3 uid="uid://io11cdfm7lpt"]
+[gd_scene load_steps=16 format=3 uid="uid://io11cdfm7lpt"]
 
 [ext_resource type="Script" path="res://GDscripts/main_scene.gd" id="1_c1o3o"]
 [ext_resource type="PackedScene" uid="uid://cxobsb40pkfun" path="res://Components/spawner.tscn" id="1_d3vby"]
 [ext_resource type="PackedScene" uid="uid://bqbncf557kjnr" path="res://Components/tube.tscn" id="2_e4qhj"]
 [ext_resource type="Texture2D" uid="uid://c6lhx5uv287x2" path="res://Kitchen.png" id="2_htmw6"]
 [ext_resource type="PackedScene" uid="uid://g33rylcp3dn0" path="res://Components/canvas_layer.tscn" id="2_ijty5"]
+[ext_resource type="Texture2D" uid="uid://c6lhx5uv287x2" path="res://Kitchen.png" id="2_ndcxt"]
 [ext_resource type="Theme" uid="uid://g7508b78n0pr" path="res://text.theme" id="3_dws38"]
+[ext_resource type="Texture2D" uid="uid://y4c3mxmchqgr" path="res://Kitchen counter.png" id="3_o6jci"]
 [ext_resource type="PackedScene" uid="uid://buc18rrvm4bfr" path="res://Components/tube_elbow.tscn" id="4_kjsws"]
 [ext_resource type="PackedScene" uid="uid://hjcp0i3whslk" path="res://Components/tube_tee.tscn" id="5_reryo"]
 [ext_resource type="Texture2D" uid="uid://483cqc2wm4p6" path="res://Mpolaki.png" id="8_uful5"]
 [ext_resource type="Texture2D" uid="uid://y4c3mxmchqgr" path="res://Kitchen counter.png" id="10_ups4t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is5xo"]
-size = Vector2(3216, 122)
+size = Vector2(3216, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l76jk"]
 size = Vector2(445, 64)
@@ -33,6 +35,20 @@ position = Vector2(-104, -760)
 scale = Vector2(16, 16)
 texture = ExtResource("2_htmw6")
 
+[node name="background" type="Sprite2D" parent="."]
+modulate = Color(0.709804, 0.709804, 0.709804, 1)
+z_index = -10
+position = Vector2(1.19209e-07, -624)
+scale = Vector2(14.34, 14.34)
+texture = ExtResource("2_ndcxt")
+
+[node name="counter" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(1088, 464)
+scale = Vector2(3.46, 3.46)
+texture = ExtResource("3_o6jci")
+flip_h = true
+
 [node name="CanvasLayer" parent="." instance=ExtResource("2_ijty5")]
 layer = 0
 follow_viewport_enabled = true
@@ -44,11 +60,12 @@ toggle_mode = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Control" index="1"]
 layout_mode = 0
-offset_left = 2064.0
-offset_top = 1000.0
-offset_right = 2464.0
-offset_bottom = 1119.0
+offset_left = 2040.0
+offset_top = 352.0
+offset_right = 2440.0
+offset_bottom = 487.0
 theme = ExtResource("3_dws38")
+theme_override_font_sizes/font_size = 96
 text = "drops:
 "
 horizontal_alignment = 1
@@ -70,7 +87,7 @@ myColor = Color(0.552941, 0.784314, 0.937255, 1)
 position = Vector2(-544, -592)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Thanatos"]
-position = Vector2(568, 1336)
+position = Vector2(568, 1366.5)
 shape = SubResource("RectangleShape2D_is5xo")
 
 [node name="tube_tee3" parent="." instance=ExtResource("2_e4qhj")]
@@ -95,7 +112,7 @@ position = Vector2(1256, -152)
 position = Vector2(432, -136)
 
 [node name="bowl" type="Node2D" parent="."]
-position = Vector2(56, 16)
+position = Vector2(56, -320)
 
 [node name="Sprite2D" type="Sprite2D" parent="bowl"]
 position = Vector2(816, 512)

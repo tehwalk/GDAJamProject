@@ -1,0 +1,13 @@
+res://Components/bowl.tscn::812c01bd957fccbe6e6ed9cb420b51d6::1702196558::res://.godot/exported/133200997/export-8c46d0fab4dae02690a4e204ad0a6abe-bowl.scn
+res://Components/canvas_layer.tscn::d8b99e0d3f7a7c0a6992d1406d98276f::1702203404::res://.godot/exported/133200997/export-6e71b29a718ee75c987f82f11fe8d02b-canvas_layer.scn
+res://Components/Droplet.tscn::a8a15d75e4b8a8f605faa310b6418b62::1702212428::res://.godot/exported/133200997/export-191fb70b9e5f6bbc4892e5d3ff9cde3f-Droplet.scn
+res://Components/rotation_button.tscn::b3035b4035c7fd101bafe21aee344282::1702203404::res://.godot/exported/133200997/export-5cbfa7b92f38d4fcf0b0b81321423ed9-rotation_button.scn
+res://Components/spawner.tscn::38dd8d35570d0eb200e62ab3892cbdf1::1702203403::res://.godot/exported/133200997/export-8abc47565f57af6f89c563a1f55f216f-spawner.scn
+res://Components/tube.tscn::61ce765e00cc202f8e318738fd84644b::1702211484::res://.godot/exported/133200997/export-1f365032235014040261824c53a57fc5-tube.scn
+res://Components/tube_elbow.tscn::a0f77682bc0bbd41b9ceaed4cba04b6c::1702203403::res://.godot/exported/133200997/export-4bbe44c5cb3f3c15b6530fded3bd3f56-tube_elbow.scn
+res://Components/tube_tee.tscn::ddad23b90dd3c780bf5515d948d9984a::1702203403::res://.godot/exported/133200997/export-4f89982e74dbf0984e897201aab0b43d-tube_tee.scn
+res://Scenes/defeat.tscn::55b5fa4a4335cc6aae4b1f182a1022f1::1702212428::res://.godot/exported/133200997/export-a440be530d1623c83118631a5fe72171-defeat.scn
+res://Scenes/main_scene.tscn::489bb29162e7c89fdf252e0e8220a64b::1702212462::res://.godot/exported/133200997/export-626e48b6b1b45a00ea1e37d242a19387-main_scene.scn
+res://Scenes/menu.tscn::14cdfe43f13447406d6fb6cd6481cf50::1702212428::res://.godot/exported/133200997/export-53a0af8f00fbc899d4d541c34a803049-menu.scn
+res://Scenes/test.tscn::56a6ca1127db5870b213580127b57d30::1702200962::res://.godot/exported/133200997/export-6b324845aa71c7b8577f9de3327bfcf9-test.scn
+res://Scenes/Victory.tscn::ecb35876f7f538dad44434d8131a3a9a::1702211390::res://.godot/exported/133200997/export-50b4be706584a9124eae6850519b9a76-Victory.scn

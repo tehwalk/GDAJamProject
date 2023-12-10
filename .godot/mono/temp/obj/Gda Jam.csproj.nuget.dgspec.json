@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Simos\\Desktop\\GameDev\\GDAJamProject\\Gda Jam.csproj": {}
+    "E:\\GDAJam\\GDAJamProject\\Gda Jam.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Simos\\Desktop\\GameDev\\GDAJamProject\\Gda Jam.csproj": {
+    "E:\\GDAJam\\GDAJamProject\\Gda Jam.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Simos\\Desktop\\GameDev\\GDAJamProject\\Gda Jam.csproj",
+        "projectUniqueName": "E:\\GDAJam\\GDAJamProject\\Gda Jam.csproj",
         "projectName": "Gda Jam",
-        "projectPath": "C:\\Users\\Simos\\Desktop\\GameDev\\GDAJamProject\\Gda Jam.csproj",
-        "packagesPath": "C:\\Users\\Simos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Simos\\Desktop\\GameDev\\GDAJamProject\\.godot\\mono\\temp\\obj\\",
+        "projectPath": "E:\\GDAJam\\GDAJamProject\\Gda Jam.csproj",
+        "packagesPath": "C:\\Users\\ΕΙΡΗΝΗ\\.nuget\\packages\\",
+        "outputPath": "E:\\GDAJam\\GDAJamProject\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Simos\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ΕΙΡΗΝΗ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -57,7 +59,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -66,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
