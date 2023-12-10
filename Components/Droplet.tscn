@@ -12,6 +12,8 @@ mass = 5.81
 inertia = 1.16
 physics_material_override = SubResource("PhysicsMaterial_7863t")
 gravity_scale = 0.1
+max_contacts_reported = 1
+contact_monitor = true
 metadata/isDroplet = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
@@ -20,5 +22,3 @@ polygon = PackedVector2Array(-8, -12, -11, -9, -12, -6, -13, 0, -12, 7, -9, 12, 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sunp4")
 debug_color = Color(0.592157, 0.54902, 0, 0.419608)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

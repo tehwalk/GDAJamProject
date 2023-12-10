@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dicgy7frp35sh"]
+[gd_scene load_steps=12 format=3 uid="uid://dicgy7frp35sh"]
 
 [ext_resource type="Script" path="res://GDscripts/menu.gd" id="1_1t4vf"]
-[ext_resource type="Texture2D" uid="uid://bmsr882dmdnwr" path="res://Menu Pano.png" id="2_2u0ig"]
-[ext_resource type="Texture2D" uid="uid://d2004f2i2oxpl" path="res://Menu Kato.png" id="2_b1ee2"]
+[ext_resource type="AudioStream" uid="uid://ckb8j3vx3gdee" path="res://audio/Music/menu.wav" id="2_52jqv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ea2es"]
 
@@ -54,7 +53,7 @@ noise = SubResource("FastNoiseLite_m70g2")
 shader = SubResource("Shader_l11qh")
 shader_parameter/scroll1 = Vector2(0.05, 0.05)
 shader_parameter/scroll2 = Vector2(-0.05, -0.05)
-shader_parameter/distorion_strength = 0.018
+shader_parameter/distorion_strength = 0.0650001
 shader_parameter/tone_color = Color(0.85098, 0.901961, 1, 1)
 shader_parameter/top_color = Color(0.388235, 0.576471, 1, 1)
 shader_parameter/light_start = 0.399
@@ -84,11 +83,6 @@ layout_mode = 0
 offset_right = 1158.0
 offset_bottom = 661.0
 color = Color(0.333333, 0.333333, 0.333333, 1)
-
-[node name="MenuKato" type="Sprite2D" parent="."]
-position = Vector2(824, 328)
-scale = Vector2(8.2, 8.2)
-texture = ExtResource("2_b1ee2")
 
 [node name="Start Shadow" type="ColorRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.392157)
@@ -139,12 +133,6 @@ position = Vector2(576, 324)
 scale = Vector2(2.25, 1.26563)
 texture = SubResource("NoiseTexture2D_24ru1")
 
-[node name="MenuPano" type="Sprite2D" parent="."]
-modulate = Color(0.647059, 0.647059, 0.647059, 1)
-position = Vector2(800, 312)
-scale = Vector2(8, 8)
-texture = ExtResource("2_2u0ig")
-
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
 offset_top = 200.0
@@ -153,7 +141,7 @@ offset_bottom = 299.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 50
 theme_override_font_sizes/font_size = 70
-text = "Liquid Simulation"
+text = "Not A Drop Lost!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -284,6 +272,10 @@ offset_right = 744.0
 offset_bottom = 376.0
 theme_override_font_sizes/font_size = 30
 text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_52jqv")
+autoplay = true
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
