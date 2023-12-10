@@ -32,9 +32,11 @@ func _on_thanatos_body_entered(body):
 
 
 func _on_niki_body_exited(body):
-	mpalakia+=1
-	_update_label()
-	print(mpalakia)
+	if body.has_meta("isDroplet") && body.get_meta("isDroplet") == true:
+		mpalakia+=1
+		_update_label()
+		body.queue_free()
+		print(mpalakia)
 
 func _update_label():
 	label.text = "Drops: " + str(mpalakia) + "/300"

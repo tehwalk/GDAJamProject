@@ -8,7 +8,7 @@ absorbent = true
 radius = 7.0
 
 [node name="droplet" type="RigidBody2D"]
-mass = 2.18
+mass = 5.81
 inertia = 1.16
 physics_material_override = SubResource("PhysicsMaterial_7863t")
 gravity_scale = 0.1
